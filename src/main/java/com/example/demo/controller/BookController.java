@@ -40,12 +40,6 @@ public class BookController {
         return bookService.update(book.getBookId(), book);
     }
 
-    // 좋아요
-    @PostMapping("/liked")
-    public Book toggleLiked(@RequestParam Long id) {
-        return bookService.toggleLiked(id);
-    }
-
     // 도서 삭제
     @DeleteMapping("/delete")
     public void delete(@RequestParam Long id) {

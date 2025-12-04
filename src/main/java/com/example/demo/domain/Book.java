@@ -18,10 +18,6 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Long bookId;
-
-    @Column(name = "member_id")
-    private Long memberId;
-
     private String title;
     private String content;
     private String author;
@@ -29,16 +25,18 @@ public class Book {
     @Column(name = "view_cnt")
     private Long viewCnt = 0L;
 
-    @Column(name = "liked")
-    private Boolean liked = false;
+    @Column(name = "reg_time")
+    private LocalDate regTime;
 
-    @Column(name = "create_at")
-    private LocalDate createAt;
-
-    @Column(name = "update_at")
-    private LocalDate updateAt;
+    @Column(name = "update_time")
+    private LocalDate updateTime;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Image> images = new ArrayList<>();
+
+    // 나중에 좋아요 기능 생기면 주석풀기
+    //@OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    //@JsonManagedReference
+    //private List<Like> likes = new ArrayList<>();
 }
