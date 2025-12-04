@@ -17,12 +17,12 @@ public class ImageServiceImpl implements ImageService {
     private final ImageRepository imageRepository;
 
     @Override
-    public Image saveImage(Long bookId , String imageUrl) {
+    public Image saveImage(Long bookId , String imgUrl) {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new RuntimeException("책을 찾을 수 없습니다 ."));
 
         Image image = new Image();
-        image.setImgUrl(imageUrl);
+        image.setImgUrl(imgUrl);
         image.setBook(book);
 
         return imageRepository.save(image);
@@ -34,7 +34,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public void delete(Long imageId) {
-        imageRepository.deleteById(imageId);
+    public void delete(Long imgId) {
+        imageRepository.deleteById(imgId);
     }
 }

@@ -30,7 +30,7 @@ public class ImageController {
 
     // 이미지 삭제
     @DeleteMapping("/delete")
-    public void delete(@RequestParam Long imageId) {
-        imageService.delete(imageId);
+    public void delete(@RequestParam Long imgId) {
+        imageService.delete(imgId);
     }
 }

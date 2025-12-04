@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ImageService {
 
-    Image saveImage(Long bookId , String imageUrl);
+    Image saveImage(Long bookId , String imgUrl);
 
     List<Image> findByBook(Long bookId);
 
-    void delete(Long imageId);
+    void delete(Long imgId);
 }
