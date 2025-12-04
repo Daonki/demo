@@ -2,34 +2,31 @@ package com.example.demo.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "books")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;               // id (BIGINT)
 
-    private String title;
+    @Column(name = "reg_date")
+    private LocalDate regDate;     // reg_date (DATE)
 
-    @Column(length = 3000)
-    private String content;
+    @Column(name = "update_date")
+    private LocalDate updateDate;  // update_date (DATE)
 
-    private String imageUrl;
+    private String title;          // title (VARCHAR)
+    private String content;        // content (VARCHAR)
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+    private String author;         // author (VARCHAR)
 
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    @Column(name = "image_id")
+    private Long imageId;          // image_id (BIGINT)
 }
+

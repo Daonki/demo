@@ -5,44 +5,44 @@ import com.example.demo.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/books")   //
+@RequestMapping("/api/books")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class BookController {
 
     private final BookService bookService;
 
-    // 전체 조회
-    @GetMapping
+    @PostMapping("/register")
+    public Book create(@RequestBody Book book) {
+        book.setRegDate(LocalDate.now());
+        book.setUpdateDate(LocalDate.now());
+        return bookService.save(book);
+    }
+
+    @GetMapping("/list")
     public List<Book> list() {
         return bookService.findAll();
     }
 
-    // 건당 조회
-    @GetMapping("/{id}")
-    public Book detail(@PathVariable Long id) {
+    @GetMapping("/detail")
+    public Book detail(@RequestParam Long id) {
         return bookService.detail(id);
     }
 
-    // 책 등록
-    @PostMapping
-    public Book create(@RequestBody Book book) {
-        return bookService.save(book);
+    @PutMapping("/update")
+    public Book update(@RequestBody Book book) {
+        book.setUpdateDate(LocalDate.now());
+        return bookService.update(book.getId(), book);
     }
 
-    // 업데이트
-    @PutMapping("/{id}")
-    public Book update(@PathVariable Long id, @RequestBody Book book) {
-        return bookService.update(id, book);
-    }
-
-    // 삭제
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam Long id) {
         bookService.delete(id);
     }
 }
+
 
