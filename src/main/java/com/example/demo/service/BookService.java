@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Book;
+import com.example.demo.dto.BookDTO;
+
 import java.util.List;
 
 public interface BookService {
 
-    List<Book> findAll();
+    List<BookDTO> findAll();
 
     Book save(Book book);
 
