@@ -28,7 +28,7 @@
 
 ✔ 조회수 증가(viewCnt) 기능  
 
-✔ imgUrl 필드 추가 및 저장  
+✔ 표지 이미지지 imgUrl 필드 추가 및 저장  
 
 ✔ Comment CRUD 기능 확장(등록/조회/수정/삭제)  
 
@@ -142,7 +142,32 @@ public class Comment {
 | 댓글 수정    | PUT    | `/api/comments/{commentId}` |
 | 댓글 삭제    | DELETE | `/api/comments/{commentId}` |
 
+## 📡 📌 **API 응답 예시**
 
+### 📘 Book API 응답
+
+✅ ① 도서 등록 (POST/api/books/register)
+```
+✔ Request Body
+{
+  "title": "테스트 책",
+  "content": "테스트 내용",
+  "author": "홍길동",
+  "imgUrl": "https://test-image.jpg"
+}
+
+✔ Response
+{
+  "bookId": 1,
+  "title": "테스트 책",
+  "content": "테스트 내용",
+  "author": "홍길동",
+  "viewCnt": 0,
+  "regTime": "2025-12-05",
+  "updateTime": "2025-12-05",
+  "imgUrl": "https://test-image.jpg"
+}
+```
 ## 🧪 **Postman API 테스트 결과**
 
 ✔ Book 등록 성공
