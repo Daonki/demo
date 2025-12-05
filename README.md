@@ -17,7 +17,7 @@
 
 ---
 
-# 📌 **프로젝트 개요**
+## 📌 **프로젝트 개요**
 
 본 미션에서는 Spring Boot 기반으로 다음과 같은 기능을 구현하였습니다.
 
@@ -37,7 +37,7 @@
 
 ---
 
-# 📂 **프로젝트 구조**
+## 📂 **프로젝트 구조**
 ```
 src
 └── main
@@ -60,9 +60,9 @@ src
 ```
 ---
 
-# 📘 **Book 기능 상세**
+##📘 **Book 기능 상세**
 
-## 📙 Book 엔티티
+### 📙 Book 엔티티
 
 ```java
 @Entity
@@ -91,7 +91,7 @@ public class Book {
 
 
 
-## 📗 Book API 목록
+### 📗 Book API 목록
 | 기능       | Method | Endpoint                        |
 | -------- | ------ | ------------------------------- |
 | 도서 등록    | POST   | `/api/books/register`           |
@@ -101,9 +101,9 @@ public class Book {
 | 도서 삭제    | DELETE | `/api/books/delete?id={bookId}` |
 
 
-# 💬 **Comment 기능 상세**
+## 💬 **Comment 기능 상세**
 
-## 💡 Comment 엔티티
+### 💡 Comment 엔티티
 
 ```java
 @Entity
@@ -129,7 +129,7 @@ public class Comment {
 
 📌 Member 기능은 팀원이 완성 후 연동 예정
 
-## 💬 Comment API 목록
+### 💬 Comment API 목록
 
 | 기능       | Method | Endpoint                    |
 | -------- | ------ | --------------------------- |
@@ -138,7 +138,7 @@ public class Comment {
 | 댓글 수정    | PUT    | `/api/comments/{commentId}` |
 | 댓글 삭제    | DELETE | `/api/comments/{commentId}` |
 
-# 🧪 **Postman API 테스트 결과**
+## 🧪 **Postman API 테스트 결과**
 
 ✔ Book 등록 성공
 
@@ -154,7 +154,7 @@ public class Comment {
 
 모든 API가 정상적으로 동작함을 검증 완료하였습니다.
 
-# 🏁 **구현 완료 사항 체크리스트**
+## 🏁 **구현 완료 사항 체크리스트**
 
 | 항목                 | 상태 |
 | ------------------ | -- |
