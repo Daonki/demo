@@ -5,8 +5,10 @@ import com.example.demo.domain.Book;
 import com.example.demo.domain.Comment;
 import com.example.demo.repository.BookRepository;
 import com.example.demo.repository.CommentRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +21,7 @@ public class CommentServiceImpl implements CommentService {
     private final BookRepository bookRepository;
 
     @Override
+    @Transactional
     public Comment addComment(Long bookId , Comment comment) {
 
         Book book = bookRepository.findById(bookId)
@@ -37,6 +40,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    @Transactional
     public Comment updateComment(Long commentId, Comment newData) {
 
         Comment comment = commentRepository.findById(commentId)
@@ -50,6 +54,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    @Transactional
     public void deleteComment(Long commentId) {
         commentRepository.deleteById(commentId);
     }

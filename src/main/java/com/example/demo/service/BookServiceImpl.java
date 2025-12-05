@@ -4,9 +4,10 @@ import com.example.demo.domain.Book;
 import com.example.demo.dto.BookDTO;
 import com.example.demo.repository.BookRepository;
 import com.example.demo.repository.LikeRepository;
-import jakarta.transaction.Transactional;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -54,6 +55,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public Book update(Long bookId, Book newData) {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new RuntimeException("책을 찾지 못했습니다."));
@@ -68,6 +70,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public void delete(Long bookId) {
         bookRepository.deleteById(bookId);
     }
