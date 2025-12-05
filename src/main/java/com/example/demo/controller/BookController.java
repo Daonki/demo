@@ -56,9 +56,9 @@ public class BookController {
     }
 
     //좋아요 클릭
-    @PostMapping("/like")
-    public void like(@RequestBody Likes like){
-        bookService.likeToggle(like.getBook().getBookId(), like.getMember().getId());
+    @PatchMapping("/{bookId}")
+    public boolean like(@PathVariable Long bookId,@RequestBody Likes like){
+        return bookService.likeToggle(bookId, like.getMember().getId());
 
     }
 }

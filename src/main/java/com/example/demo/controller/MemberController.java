@@ -14,7 +14,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/join")
+    @PostMapping
     public MessageDTO join(@RequestBody Member member){
         return memberService.save(member);
     }

@@ -6,6 +6,7 @@ import com.example.demo.repository.BookRepository;
 import com.example.demo.repository.LikeRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
@@ -76,14 +78,20 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void likeToggle(Long member_id,Long book_id){
+    public boolean likeToggle(Long member_id,Long book_id){
 
         boolean exists = likeRepository.existsByMember_IdAndBook_BookId(member_id, book_id);
 
+        log.info("=================");
+        log.info(exists);
+        log.info("=================");
+
         if (exists) {
             likeRepository.likeToggle(member_id, book_id);
+            return likeRepository.findLikeYn(member_id, book_id);
         } else {
             likeRepository.insertLike(member_id, book_id);
+            return likeRepository.findLikeYn(member_id, book_id);
         }
     }
 }
