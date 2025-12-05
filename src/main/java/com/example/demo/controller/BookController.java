@@ -57,8 +57,14 @@ public class BookController {
 
     //좋아요 클릭
     @PatchMapping("/{bookId}")
-    public boolean like(@PathVariable Long bookId,@RequestBody Likes like){
-        return bookService.likeToggle(bookId, like.getMember().getId());
+    public ResponseEntity<?> like(@PathVariable Long bookId,@RequestBody Likes like){
+        boolean liked =  bookService.likeToggle(bookId, like.getMember().getId());
+
+        if(liked){
+            return ResponseEntity.ok("liked");
+        }else{
+            return ResponseEntity.ok("unliked");
+        }
 
     }
 }
