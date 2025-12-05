@@ -89,7 +89,7 @@ public class Book {
 | 도서 수정    | PUT    | `/api/books/update`             |
 | 도서 삭제    | DELETE | `/api/books/delete?id={bookId}` |
 
-#💬 4. Comment 기능 상세
+# 💬 **4. Comment 기능 상세**
 
 ## 💡 Comment 엔티티
 
@@ -121,7 +121,7 @@ public class Comment {
 | 댓글 수정    | PUT    | `/api/comments/{commentId}` |
 | 댓글 삭제    | DELETE | `/api/comments/{commentId}` |
 
-# 🧪 5. Postman API 테스트 결과
+# 🧪 **5. Postman API 테스트 결과**
 
 ✔ Book 등록 성공
 ✔ Book 상세 조회 + 조회수 증가 확인
