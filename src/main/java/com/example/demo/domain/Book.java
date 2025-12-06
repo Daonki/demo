@@ -30,9 +30,4 @@ public class Book {
 
     @Column(name = "img_url")
     private String imgUrl;
-
-    // 나중에 좋아요 기능 생기면 주석풀기
-    //@OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    //@JsonManagedReference
-    //private List<Like> likes = new ArrayList<>();
 }
