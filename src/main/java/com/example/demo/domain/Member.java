@@ -17,7 +17,7 @@ public class Member {
     @Column(name = "login_id", nullable = false, unique = true)
     private String loginId;
 
-    @Column(name = "pass", nullable = false, unique = true)
+    @Column(name = "pass", nullable = false)
     private String pass;
 
     @Column(name = "name")
