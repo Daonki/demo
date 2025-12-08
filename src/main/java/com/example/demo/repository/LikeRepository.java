@@ -31,7 +31,7 @@ public interface LikeRepository extends JpaRepository<Likes,Long> {
     @Query("SELECT l.like_yn FROM Likes l WHERE l.member.id = :memberId AND l.book.bookId = :bookId")
     Boolean findLikeYn(Long bookId, Long memberId);
 
-    boolean existsByMember_IdAndBook_BookId(Long bookId, Long memberId);
+    boolean existsByMember_IdAndBook_BookId(Long memberId, Long bookId);
 
     @Query("SELECT l.book FROM Likes l WHERE l.member.id = :memberId AND l.like_yn = true")
     List<Book> findLikedBooksByMemberId(@Param("memberId") Long memberId);

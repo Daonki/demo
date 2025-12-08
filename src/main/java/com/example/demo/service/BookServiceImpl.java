@@ -111,7 +111,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public boolean likeToggle(Long book_id,Long member_id) {
 
-        boolean exists = likeRepository.existsByMember_IdAndBook_BookId(book_id, member_id);
+        boolean exists = likeRepository.existsByMember_IdAndBook_BookId(member_id, book_id);
 
         log.info("=================");
         log.info(exists);
