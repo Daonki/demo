@@ -33,12 +33,18 @@ public class BookController {
         return ResponseEntity.ok(bookService.findAll());
     }
 
+    // 도서 인기조회순 조회
+    @GetMapping("/hot")
+    public ResponseEntity<List<BookDTO>> hotlist(){ return ResponseEntity.ok(bookService.hotlist());}
+
     // 도서 상세 조회
     @GetMapping("/{bookId}")
     public ResponseEntity<Book> detail(@PathVariable Long bookId) {
         Book book = bookService.detail(bookId);
         return ResponseEntity.ok(book);
     }
+
+
 
     // 도서 수정
     @PutMapping("/{bookId}")

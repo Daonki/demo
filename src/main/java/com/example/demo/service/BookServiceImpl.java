@@ -39,6 +39,23 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    //인기 조회순
+    @Override
+    public List<BookDTO> hotlist() {
+        return bookRepository.findAllByOrderByViewCntDesc()
+                .stream()
+                .map(book -> {
+                    BookDTO dto = new BookDTO();
+                    dto.setBookId(book.getBookId());
+                    dto.setTitle(book.getTitle());
+                    dto.setAuthor(book.getAuthor());
+                    dto.setViewCnt(book.getViewCnt());
+                    dto.setImgUrl(book.getImgUrl());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
     @Override
     public Book save(Book book) {
         book.setRegTime(LocalDate.now());      // reg_time
