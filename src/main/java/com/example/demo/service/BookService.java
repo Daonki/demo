@@ -9,6 +9,8 @@ public interface BookService {
 
     List<BookDTO> findAll();
 
+    List<BookDTO> hotlist();
+
     Book save(Book book);
 
     Book detail(Long id);
