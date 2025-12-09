@@ -21,7 +21,13 @@
 - H2-console
 - JPA Repository
 
-## 4. 시스템 아키텍처 구조
+## 4. 빌드 및 실행
+IDE환경에서 jar파일로 빌드 후 cmd에서 실행하시면 됩니다
+```
+java -jar demo.jar
+```
+
+## 5. 시스템 아키텍처 구조
 BookMuseum 백엔드는 JWT 기반 인증 시스템, Spring Security 필터 체인 ,
 
 그리고 React 프론트엔드 + OpenAI 이미지 생성 API와 연동되는 구조로 설계되었습니다 . 
@@ -54,7 +60,7 @@ SecurityConfig의 인증 제외 API:
 
 그 외 /api/**는 모두 JWT 인증 필요.
  
-## 5. 프로젝트 디렉터리
+## 6. 프로젝트 디렉터리
 ```
 src
 └── main
@@ -115,14 +121,7 @@ src
 | 내가 좋아요한 도서 목록 조회 | **GET**    | `/api/mypage/liked`    | 좋아요 누른 책 목록        |
 | 도서 삭제            | **DELETE** | `/api/mypage/{bookId}` | 내가 등록한 책만 삭제 가능    |
 
-
-## 8. 빌드 및 실행
-IDE환경에서 jar파일로 빌드 후 cmd에서 실행하시면 됩니다
-```
-java -jar demo.jar
-```
-
-## 9. 프로젝트 설계 문서 링크
+## 8. 프로젝트 설계 문서 링크
 프로젝트 전반의 흐름, ERD 구조, API 명세서, 협업 규칙 등이 담겨 있습니다.
 ```
 📄 프로젝트 흐름(notion)
@@ -141,7 +140,7 @@ java -jar demo.jar
 🔗 https://www.figma.com/design/zsT7VhkMluKt9uq4AteEPI/BOOK-UI
 
 
-## 10. 개발 중 배운 점 & 개선점
+## 9. 개발 중 배운 점 & 개선점
 ### 🔍 1) JWT + Cookie 기반 인증 설계 경험
 
 - AccessToken을 HTTP-Only 쿠키로 저장하여 XSS 공격을 원천 차단.
