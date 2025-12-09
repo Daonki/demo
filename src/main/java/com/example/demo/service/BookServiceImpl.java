@@ -149,6 +149,7 @@ public class BookServiceImpl implements BookService {
                     dto.setAuthor(book.getAuthor());
                     dto.setViewCnt(book.getViewCnt());
                     dto.setImgUrl(book.getImgUrl());
+                    dto.setOwnerLoginId(book.getMember().getLoginId());
                     return dto;
                 })
                 .collect(Collectors.toList());

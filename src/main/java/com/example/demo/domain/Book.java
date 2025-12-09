@@ -28,7 +28,7 @@ public class Book {
     @Column(name = "update_time")
     private LocalDate updateTime;
 
-    @Column(name = "img_url")
+    @Column(name = "img_url" , columnDefinition = "CLOB")
     private String imgUrl;
 
     @ManyToOne

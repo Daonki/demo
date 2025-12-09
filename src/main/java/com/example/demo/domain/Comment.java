@@ -18,7 +18,6 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
-
     private String content;
     private String author;
     private LocalDate regTime;
